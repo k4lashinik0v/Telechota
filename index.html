@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5d000">
+  <meta name="description" content="Telechota — descubra vídeos, criadores e tendências.">
+  <title>Telechota — Assista ao que importa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Telechota início"><span class="brand-mark">▶</span><span>tele<span>chota</span></span></a>
+    <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Pesquisar vídeos..." aria-label="Pesquisar vídeos"><button aria-label="Buscar">⌕</button></form>
+    <div class="top-actions"><button class="icon-btn" id="uploadOpen" title="Publicar vídeo">＋ <span>Publicar</span></button><button class="avatar" id="profileBtn" title="Perfil">T</button></div>
+  </header>
+  <aside class="sidebar">
+    <button class="side-link active" data-filter="Todos"><span>⌂</span> Início</button>
+    <button class="side-link" data-filter="Vídeos"><span>▶</span> Vídeos</button>
+    <div class="sidebar-line"></div>
+    <p class="side-caption">SUA BIBLIOTECA</p>
+    <button class="side-link" id="laterBtn"><span>◷</span> Assistir depois</button>
+    <div class="sidebar-bottom"><span class="tiny-mark">▶</span><p>Seu próximo vídeo<br><b>começa aqui.</b></p></div>
+  </aside>
+  <main class="main">
+    <section class="hero">
+      <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> SEU PRÓXIMO PLAY</div><h1>O que você quer<br>assistir <em>hoje?</em></h1><p>Vídeos, ideias e momentos que merecem o seu tempo.</p><button class="primary-btn" id="exploreBtn">Explorar vídeos <span>↗</span></button></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="play-tile">▶</div><span class="float-tag tag-one">PLAY ▶</span><span class="float-tag tag-two">#EMALTA</span><span class="float-dot"></span></div>
+      <div class="hero-count"><b>01</b><span> / DESCUBRA ALGO NOVO</span></div>
+    </section>
+    <div class="section-head"><div><p class="section-kicker">FEITO PARA VOCÊ</p><h2>Explore <span>os vídeos</span></h2></div><div class="sort-wrap"><span>Ordenar por</span><select id="sortSelect" aria-label="Ordenar vídeos"><option value="recommended">Recomendados</option><option value="views">Mais vistos</option><option value="newest">Recentes</option></select></div></div>
+    <nav class="chips" id="chips"><button class="chip selected" data-filter="Todos">Tudo</button><button class="chip" data-filter="Vídeos">▶ Vídeos</button></nav>
+    <section class="video-grid" id="videoGrid" aria-live="polite"></section>
+    <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>Nenhum vídeo encontrado</h3><p>Tente outra pesquisa ou escolha uma categoria.</p><button class="primary-btn" id="resetSearch">Ver todos os vídeos</button></div>
+    <footer><a class="brand footer-brand" href="#"><span class="brand-mark">▶</span><span>tele<span>chota</span></span></a><span>Seu espaço para descobrir e compartilhar vídeos.</span><span>© Telechota</span></footer>
+  </main>
+  <div class="modal hidden" id="playerModal" role="dialog" aria-modal="true" aria-label="Reprodutor de vídeo"><div class="modal-backdrop" data-close="playerModal"></div><div class="player-panel"><button class="close-btn" data-close="playerModal">×</button><div class="player-screen" id="playerScreen"><span class="big-play">▶</span><p>Prévia do vídeo</p></div><div class="player-info"><p class="video-category" id="playerCategory"></p><h2 id="playerTitle"></h2><p id="playerMeta"></p><button class="secondary-btn" id="saveVideo">◷ Assistir depois</button></div></div></div>
+  <div class="modal hidden" id="uploadModal" role="dialog" aria-modal="true" aria-label="Publicar vídeo"><div class="modal-backdrop" data-close="uploadModal"></div><div class="upload-panel"><button class="close-btn" data-close="uploadModal">×</button><p class="section-kicker">SEU CONTEÚDO</p><h2>Publicar vídeo</h2><p class="modal-desc">Adicione os detalhes do vídeo para ver como ele ficará no Telechota.</p><form id="uploadForm"><label for="videoTitle">Título do vídeo</label><input id="videoTitle" required maxlength="90" placeholder="Dê um título ao seu vídeo"><label for="videoCategory">Categoria</label><select id="videoCategory"><option>Vídeos</option></select><label for="videoFile">Arquivo de vídeo (opcional)</label><input id="videoFile" type="file" accept="video/*"><p class="upload-note" id="uploadNote">Protótipo: o vídeo não será enviado para um servidor.</p><button class="primary-btn full-btn" type="submit">Criar prévia <span>↗</span></button></form><div class="form-success hidden" id="uploadSuccess">✓ Prévia adicionada nesta sessão!</div></div></div>
+  <div class="toast hidden" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
